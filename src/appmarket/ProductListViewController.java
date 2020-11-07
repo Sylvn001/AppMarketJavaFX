@@ -8,6 +8,9 @@ package appmarket;
 import appmarket.db.entidades.dal.ProductDal;
 import appmarket.db.entities.Categorie;
 import appmarket.db.entities.Product;
+import de.jensd.fx.glyphs.GlyphsDude;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcons;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -63,6 +66,8 @@ public class ProductListViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        //(GlyphsDude.createIcon(FontAwesomeIcons.BARCODE, "5px"));
+        
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         price.setCellValueFactory(new PropertyValueFactory<>("price"));

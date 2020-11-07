@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="835.0" prefWidth="1077.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <HBox prefHeight="45.0" prefWidth="600.0" style="-fx-background-color: #DDD;" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #DDD;" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="txFilter" prefHeight="25.0" prefWidth="415.0" />
+            <Button fx:id="evtSearch" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Search">
+               <HBox.margin>
+                  <Insets left="10.0" right="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="evtNewClient" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="New">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="evtClose" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Close">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <TableView prefHeight="621.0" prefWidth="1166.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="41.0" text="ID" />
+          <TableColumn prefWidth="116.0" text="Document" />
+            <TableColumn prefWidth="137.0" text="Name" />
+            <TableColumn prefWidth="127.0" text="Address" />
+            <TableColumn prefWidth="149.0" text="Neighborhood" />
+            <TableColumn prefWidth="169.0" text="City" />
+            <TableColumn prefWidth="104.0" text="Cep" />
+            <TableColumn prefWidth="40.0" text="UF" />
+            <TableColumn prefWidth="193.0" text="Email" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="Edit" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+   </center>
+</BorderPane>
