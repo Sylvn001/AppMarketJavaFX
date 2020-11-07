@@ -36,7 +36,7 @@ public class CategorieDal {
     }
     
     public boolean delete (int id){
-        String sql = "DELETE INTO categories WHERE id = " + id;
+        String sql = "DELETE FROM categories WHERE cat_id = " + id;
      
           return DB.getCon().manipular(sql);
     }

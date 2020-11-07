@@ -75,9 +75,7 @@ public class ProductListViewController implements Initializable {
     private void tableLoad(String filter){
         ProductDal dal = new ProductDal();
         List <Product> products = dal.get(filter);
-        table.setItems(FXCollections.observableArrayList(products));
-       
-        System.out.println(products.get(0).getName());
+        table.setItems(FXCollections.observableArrayList(products));       
     }
 
     @FXML
