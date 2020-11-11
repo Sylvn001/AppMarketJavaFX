@@ -55,5 +55,25 @@ public class MainViewController implements Initializable {
         stage.showAndWait();
         
     }
+
+    @FXML
+    private void evtClientList(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("ClientView.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+    }
+
+    @FXML
+    private void evtOrderList(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("NewOrderView.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+    }
     
 }

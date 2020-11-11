@@ -19,8 +19,8 @@
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#evtProdList" text="Product" />
                         <MenuItem mnemonicParsing="false" onAction="#evtCategorieList" text="Categorie" />
-                        <MenuItem mnemonicParsing="false" text="Client" />
-                        <MenuItem mnemonicParsing="false" text="Order" />
+                        <MenuItem mnemonicParsing="false" onAction="#evtClientList" text="Client" />
+                        <MenuItem mnemonicParsing="false" onAction="#evtOrderList" text="Order" />
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem mnemonicParsing="false" text="Exit" />
                   </items>

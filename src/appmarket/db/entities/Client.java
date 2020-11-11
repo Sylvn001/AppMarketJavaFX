@@ -11,7 +11,7 @@ package appmarket.db.entities;
  */
 public class Client {
     private int id; 
-    private int cli_document;
+    private int document;
     private String name;
     private String address;
     private String neighborhood; 
@@ -31,7 +31,7 @@ public class Client {
 
     public Client(int id, int cli_document, String name, String address, String neighborhood, String city, String cep, String uf, String email) {
         this.id = id;
-        this.cli_document = cli_document;
+        this.document = cli_document;
         this.name = name;
         this.address = address;
         this.neighborhood = neighborhood;
@@ -51,12 +51,12 @@ public class Client {
         this.id = id;
     }
 
-    public int getCli_document() {
-        return cli_document;
+    public int getDocument() {
+        return document;
     }
 
-    public void setCli_document(int cli_document) {
-        this.cli_document = cli_document;
+    public void setDocument(int cli_document) {
+        this.document = cli_document;
     }
 
     public String getName() {

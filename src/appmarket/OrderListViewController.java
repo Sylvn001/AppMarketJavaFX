@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author junio
  */
-public class NewOrderViewController implements Initializable {
+public class OrderListViewController implements Initializable {
 
     /**
      * Initializes the controller class.

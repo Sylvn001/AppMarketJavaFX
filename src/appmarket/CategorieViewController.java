@@ -54,7 +54,7 @@ public class CategorieViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-         cID.setCellValueFactory(new PropertyValueFactory<>("id"));
+        cID.setCellValueFactory(new PropertyValueFactory<>("id"));
         cName.setCellValueFactory(new PropertyValueFactory<>("name"));
         cDesc.setCellValueFactory(new PropertyValueFactory<>("description"));
       
@@ -72,8 +72,7 @@ public class CategorieViewController implements Initializable {
     private void tableLoad(String filter){
         CategorieDal dal = new CategorieDal();
         List <Categorie> categories = dal.get(filter);
-        table.setItems(FXCollections.observableArrayList(categories));
-       
+        table.setItems(FXCollections.observableArrayList(categories));  
     }
 
     @FXML
