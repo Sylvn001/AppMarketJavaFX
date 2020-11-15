@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <top>
@@ -24,19 +24,11 @@
                   <Insets left="25.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#evtClose" prefHeight="25.0" prefWidth="60.0" text="Cancel">
-               <HBox.margin>
-                  <Insets left="5.0" right="5.0" />
-               </HBox.margin>
-            </Button>
          </children>
       </HBox>
    </top>
-   <bottom>
-      <HBox prefHeight="50.0" prefWidth="724.0" style="-fx-background-color: #ddd;" BorderPane.alignment="CENTER" />
-   </bottom>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView prefHeight="575.0" prefWidth="724.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn prefWidth="75.0" text="ID" />
           <TableColumn prefWidth="75.0" text="Client" />
@@ -49,4 +41,26 @@
         </columns>
       </TableView>
    </center>
+   <bottom>
+      <HBox alignment="CENTER" layoutX="10.0" prefHeight="50.0" prefWidth="724.0" style="-fx-background-color: #ddd;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Confirm">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#evtClose" prefHeight="30.0" prefWidth="90.0" text="Cancel">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>

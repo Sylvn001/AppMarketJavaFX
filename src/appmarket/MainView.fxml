@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -8,6 +7,8 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appmarket.MainViewController">
    <top>
@@ -15,7 +16,7 @@
          <children>
             <MenuBar prefHeight="55.0" prefWidth="760.0">
               <menus>
-                <Menu mnemonicParsing="false" text="CREATE">
+                <Menu mnemonicParsing="false" text="Operations">
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#evtProdList" text="Product" />
                         <MenuItem mnemonicParsing="false" onAction="#evtCategorieList" text="Categorie" />
@@ -25,17 +26,14 @@
                         <MenuItem mnemonicParsing="false" text="Exit" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Orders">
+                <Menu mnemonicParsing="false" text="Reports">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
+                    <MenuItem fx:id="evtProductsReports" mnemonicParsing="false" text="Products" />
+                        <MenuItem mnemonicParsing="false" text="Clients" />
+                        <MenuItem mnemonicParsing="false" text="Orders" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="DELETE">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Product" />
-                  </items>
-                </Menu>
-                  <Menu mnemonicParsing="false" text="CONFIG">
+                  <Menu mnemonicParsing="false" text="Configs">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Product" />
                      </items>
@@ -47,15 +45,18 @@
                   </Menu>
               </menus>
             </MenuBar>
-            <ToolBar prefHeight="44.0" prefWidth="760.0">
-              <items>
-                <Button mnemonicParsing="false" text="Button" />
-              </items>
-            </ToolBar>
+            <ToolBar prefHeight="44.0" prefWidth="760.0" />
          </children>
       </VBox>
    </top>
    <bottom>
-      <VBox prefHeight="64.0" prefWidth="760.0" style="-fx-background-color: #AAAAAA;" BorderPane.alignment="CENTER" />
+      <VBox prefHeight="43.0" prefWidth="760.0" style="-fx-background-color: #AAAAAA;" BorderPane.alignment="CENTER" />
    </bottom>
+   <center>
+      <Text fill="#eb4c4c" strokeType="OUTSIDE" strokeWidth="0.0" text="AppMarket - JavaFX" textAlignment="CENTER" wrappingWidth="596.046875" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="64.0" />
+         </font>
+      </Text>
+   </center>
 </BorderPane>
