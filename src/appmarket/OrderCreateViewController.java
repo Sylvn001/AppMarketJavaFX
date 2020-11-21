@@ -5,6 +5,7 @@
  */
 package appmarket;
 
+import static appmarket.OrderListViewController.order;
 import appmarket.db.entidades.dal.ClientDal;
 import appmarket.db.entidades.dal.OrderDal;
 import appmarket.db.entidades.dal.ProductDal;
@@ -30,6 +31,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.InputMethodEvent;
 
 /**
  * FXML Controller class
@@ -41,6 +44,7 @@ public class OrderCreateViewController implements Initializable {
     @FXML
     private ComboBox<Client> cbClient;
   
+    @FXML
     private DatePicker dpData;
     @FXML
     private TextField txFreight;
@@ -61,19 +65,31 @@ public class OrderCreateViewController implements Initializable {
     @FXML
     private TableColumn<Order.ItemOrder, Integer> tbAmount;
     
-    private List itemsOrder; 
-
+    private ArrayList<Order.ItemOrder> itemsOrder; 
+    private Double total = 0.0;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        cbAmount.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 1));
+        cbAmount.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1));
+        itemsOrder = new ArrayList();
         tbProd.setCellValueFactory(new PropertyValueFactory<>("product"));
         tbPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         tbAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-        itemsOrder = new ArrayList();
+        dpData.setValue(LocalDate.now());
+        if(OrderListViewController.order != null){
+            dpData.setValue(order.getDate());
+            txTotal.setText(""+order.getTotal());
+            txFreight.setText(""+ order.getFreight());
+            cbClient.setValue(order.getClient());
+            itemsOrder.addAll(order.getItens());
+            table.setItems(FXCollections.observableArrayList(itemsOrder));          
+        }
+        
+        cbPrice.setDisable(true);
+        txTotal.setDisable(true);
         cbLoad();
     }    
     
@@ -81,6 +97,7 @@ public class OrderCreateViewController implements Initializable {
         //Default params initialize
         ClientDal cdal = new ClientDal();
         ProductDal pdal= new ProductDal();
+//      cbPrice.setText();;
         cbClient.setItems(FXCollections.observableArrayList(new ClientDal().get("")));
         cbProduct.setItems(FXCollections.observableArrayList(new ProductDal().get("")));
   
@@ -89,19 +106,22 @@ public class OrderCreateViewController implements Initializable {
     @FXML
     private void evtCreate(ActionEvent event) {
    
-       Client cli = cbClient.getValue();
-       Double price=0.0;
-          
-        Order o = new Order(cli, LocalDate.MAX, 0, 0);
+        Client cli = cbClient.getValue();
+        total+= Double.parseDouble(txFreight.getText());
+        this.txTotal.setText(String.valueOf(total));
+
+        Order o = new Order(cli, dpData.getValue(), Double.parseDouble(txFreight.getText()), total);
+        o.setItens(itemsOrder);
         OrderDal odal= new OrderDal(); 
         
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        if(ProductListViewController.product != null){
-            o.setId(ProductListViewController.product.getId());
-            //odal.update(p);
-            alert.setHeaderText("Success! order Updated");
-            alert.setHeaderText("Order updated with Success!!!");
-            alert.showAndWait();
+        if(OrderListViewController.order != null){
+            o.setId(order.getId());
+            if(new OrderDal().update(o)){
+               alert.setHeaderText("Success! order Updated");
+               alert.setHeaderText("Order updated with Success!!!");
+               alert.showAndWait();   
+            }
             closeW();
         }else{
       
@@ -128,12 +148,25 @@ public class OrderCreateViewController implements Initializable {
 
     @FXML
     private void newItemOrder(ActionEvent event) {
-        try{
-            int v  = cbAmount.getValue().intValue();
-            Double d = Double.parseDouble(cbPrice.getText());
-            itemsOrder.add(new ItemOrder(cbProduct.getValue(), v, d));
-            System.out.println(v);
-            System.out.println(d);
+        try{         
+            Product p = cbProduct.getValue();
+            int amount = cbAmount.getValue();
+            int pStock = p.getStock();
+            int atualStock = pStock - amount;
+            
+            if(atualStock >= 0)
+            {
+                ItemOrder io = new ItemOrder(p,amount , Double.parseDouble(cbPrice.getText()));  
+                System.out.println(io.getAmount());
+                itemsOrder.add(io);
+                table.setItems(FXCollections.observableArrayList(itemsOrder));  
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erro, invalid amount");
+                alert.setHeaderText("Erro, invalid amount. The stock of product selectioned is bigger then atual Stock ");
+                alert.showAndWait();
+            }
+                            
         }
         catch(NumberFormatException e){
             Alert alert = new Alert(Alert.AlertType.ERROR); 
@@ -141,7 +174,37 @@ public class OrderCreateViewController implements Initializable {
             alert.setHeaderText("Erro: " + e);
             alert.showAndWait();
         }
-        table.setItems(FXCollections.observableArrayList(itemsOrder));                   
+        int i=0;
+        total=0.0;
+        while(i < itemsOrder.size()){
+            total+=itemsOrder.get(i).getPrice() * itemsOrder.get(i).getAmount();
+            i++;
+        }
+        this.txTotal.setText(String.valueOf(total));
+       
+    }
+
+    @FXML
+    private void evtDelItemProduct(ActionEvent event) {
+        ItemOrder io = table.getSelectionModel().getSelectedItem();
+        itemsOrder.remove(io);
+        table.setItems(FXCollections.observableArrayList(itemsOrder));
+        
+        int i=0;
+        total=0.0;
+        while(i < itemsOrder.size()){
+            total+=itemsOrder.get(i).getPrice() * itemsOrder.get(i).getAmount();
+            i++;
+        }
+        
+    }
+
+
+    @FXML
+    private void evtChange(ActionEvent event) {
+        System.out.println("alo");
+            this.cbPrice.setText(String.valueOf(cbProduct.getSelectionModel().getSelectedItem().getPrice()));
+
     }
     
 }

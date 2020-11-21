@@ -6,6 +6,7 @@
 package appmarket.db.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +25,7 @@ public class Order {
         }
         
          public ItemOrder(Product product, int amount, double price) {
-             this(0,product,0,0);
+             this(0,product,amount,price);
         }
 
         public ItemOrder(int id, Product product, int amount, double price) {
@@ -76,15 +77,18 @@ public class Order {
 
     public Order() {
         this(0,new Client(),LocalDate.now(),0,0);
+        this.itens = new ArrayList<>();
     }
 
     public Order(Client client, LocalDate date, double freight, double total) {
          this(0,client,date,freight,total);
+        this.itens = new ArrayList<>();
           
 
     }
 
     public Order(int id, Client client, LocalDate date, double freight, double total) {
+        this.itens = new ArrayList<>();
         this.id = id;
         this.client = client;
         this.date = date;
@@ -132,9 +136,9 @@ public class Order {
         this.total = total;
     }
      
-    public boolean add(Product p, int amount, double price)
+    public void add(Product p, int amount, double price)
     {
-        return itens.add(new ItemOrder(p,amount,price));
+         itens.add(new ItemOrder(p,amount,price));
     }
     public void add(ItemOrder io)
     {
@@ -143,10 +147,10 @@ public class Order {
     public void setItens(List io){
         itens = io;
     }
-    public List<ItemOrder>getItens()
+    public ArrayList<ItemOrder> getItens()
     {
-        return itens;
+        return (ArrayList<ItemOrder>) itens;
     }    
-  
+   
     
 }

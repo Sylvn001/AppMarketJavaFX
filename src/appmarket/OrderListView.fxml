@@ -32,17 +32,18 @@
       <TableView fx:id="table" prefHeight="575.0" prefWidth="724.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="cli" prefWidth="75.0" text="Client" />
-            <TableColumn fx:id="data" prefWidth="75.0" text="Data" />
-            <TableColumn fx:id="freight" prefWidth="75.0" text="Freight" />
-            <TableColumn fx:id="total" prefWidth="75.0" text="Total" />
+          <TableColumn fx:id="cli" prefWidth="199.0" text="Client" />
+            <TableColumn fx:id="data" prefWidth="137.0" text="Data" />
+            <TableColumn fx:id="freight" prefWidth="121.0" text="Freight" />
+            <TableColumn fx:id="total" prefWidth="70.0" text="Total" />
         </columns>
          <contextMenu>
             <ContextMenu>
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#evtOrderInfo" text="Info " />
+                <MenuItem mnemonicParsing="false" onAction="#evtOrderInfo" text="Info (Report)" />
                   <MenuItem mnemonicParsing="false" onAction="#evtEditOrder" text="Edit " />
                   <MenuItem mnemonicParsing="false" onAction="#EvtDeleteOrder" text="Delete" />
+                  <MenuItem mnemonicParsing="false" onAction="#evtCloseOrder" text="Close Order" />
               </items>
             </ContextMenu>
          </contextMenu>

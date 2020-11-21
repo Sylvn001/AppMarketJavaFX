@@ -23,7 +23,7 @@
    <children>
       <HBox alignment="CENTER" layoutX="-8.0" layoutY="-6.0" prefHeight="61.0" prefWidth="705.0" style="-fx-background-color: #DDD;">
          <children>
-            <Text fill="#f85e5e" strokeType="OUTSIDE" strokeWidth="0.0" text="New Order" textAlignment="CENTER" wrappingWidth="703.943359375">
+            <Text fill="#f85e5e" strokeType="OUTSIDE" strokeWidth="0.0" text=" Order" textAlignment="CENTER" wrappingWidth="703.943359375">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
@@ -89,7 +89,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbProduct" prefWidth="150.0" GridPane.columnIndex="1" />
+            <ComboBox fx:id="cbProduct" onAction="#evtChange" prefWidth="150.0" GridPane.columnIndex="1" />
             <Spinner fx:id="cbAmount" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="cbPrice" prefHeight="0.0" prefWidth="495.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
@@ -118,14 +118,14 @@
          <children>
             <TableView fx:id="table" prefHeight="226.0" prefWidth="609.0">
               <columns>
-                <TableColumn fx:id="tbProd" prefWidth="126.0" text="Product" />
-                <TableColumn fx:id="tbPrice" prefWidth="114.0" text="Price" />
-                  <TableColumn fx:id="tbAmount" prefWidth="113.0" text="Amount" />
+                <TableColumn fx:id="tbProd" prefWidth="183.0" text="Product" />
+                <TableColumn fx:id="tbPrice" prefWidth="159.0" text="Price" />
+                  <TableColumn fx:id="tbAmount" prefWidth="136.0" text="Amount" />
               </columns>
                <contextMenu>
                   <ContextMenu>
                     <items>
-                      <MenuItem mnemonicParsing="false" text="DeleteItem" />
+                      <MenuItem mnemonicParsing="false" onAction="#evtDelItemProduct" text="DeleteItem" />
                     </items>
                   </ContextMenu>
                </contextMenu>

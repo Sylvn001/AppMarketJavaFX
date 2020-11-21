@@ -30,6 +30,20 @@ public class ProductDal {
         return DB.getCon().manipular(sql);
      
     }
+     
+     public int getStock(int id) throws SQLException{
+         int stock;
+         String sql = "SELECT pro_stock where pro_id = " + id;
+         ResultSet rs = DB.getCon().consultar(sql);
+         stock = rs.getInt("pro_stock");
+         return stock;
+     }
+     public void updateStock(int id, int stock){
+         String sql;
+         sql = "UPDATE products SET pro_stock = " +stock + " WHERE pro_id = " + id;
+         DB.getCon().manipular(sql);
+     }
+             
     
     
     public boolean update(Product p){
