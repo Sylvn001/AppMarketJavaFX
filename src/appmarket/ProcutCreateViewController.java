@@ -101,9 +101,7 @@ public class ProcutCreateViewController implements Initializable {
                 closeW();
             }
         }
-
-
-            
+    
     }
     
     private void closeW(){

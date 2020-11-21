@@ -73,5 +73,10 @@ public class Product {
         this.categorie = categorie;
     }
     
+    public String toString()
+    {
+        return name;
+    }
+    
     
 }

@@ -28,9 +28,9 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Reports">
                   <items>
-                    <MenuItem fx:id="evtProductsReports" mnemonicParsing="false" text="Products" />
-                        <MenuItem mnemonicParsing="false" text="Clients" />
-                        <MenuItem mnemonicParsing="false" text="Orders" />
+                    <MenuItem mnemonicParsing="false" onAction="#evtRelProducts" text="Products" />
+                        <MenuItem mnemonicParsing="false" onAction="#evtrelClients" text="Clients" />
+                        <MenuItem mnemonicParsing="false" onAction="#evtRelOrders" text="Orders" />
                   </items>
                 </Menu>
                   <Menu mnemonicParsing="false" text="Configs">

@@ -7,6 +7,8 @@ package appmarket.db.entidades.dal;
 
 import appmarket.db.connect.DB;
 import appmarket.db.entities.Order;
+import appmarket.db.entities.Order.ItemOrder;
+import appmarket.db.entities.Product;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -54,9 +56,9 @@ public class OrderDal {
     }
     
     public boolean apagar(int id){
-        String sql = "delete from itens_pedido where cat_id="+id;
+        String sql = "delete from orders where ord_id="+id;
         if(DB.getCon().manipular(sql)){
-            sql = "delete from itens_pedido where cat_id="+id;
+            sql = "delete from items_order where cat_id="+id;
             
             if(DB.getCon().manipular(sql)){
                 return true;
@@ -67,7 +69,7 @@ public class OrderDal {
     }
     public Order get(int id) throws SQLException
     {   Order aux=null;
-        String sql="SELECT * FROM order WHERE ord_id="+id;
+        String sql="SELECT * FROM orders WHERE ord_id="+id;
         ResultSet rs = DB.getCon().consultar(sql);
         try{
            if(rs.next())
@@ -88,31 +90,28 @@ public class OrderDal {
     }
 
     
-    public List<Order> get(String filter) throws SQLException
-    {   List <Order> orders=new ArrayList();
+    public List<Order> get(String filter) 
+    {   List <Order> orders=new ArrayList();;
+        ClientDal clientDal = new ClientDal();
         int pos=0;
-        String sql="SELECT * FROM order";
+        String sql="SELECT * FROM orders";
         if (!filter.isEmpty())
             sql+=" WHERE "+filter;
         ResultSet rs = DB.getCon().consultar(sql);
+        ResultSet items_order_rs;
         try{
-          if(rs.next())
            while(rs.next())
            {
-               if(rs.next()){
-                    orders.add( 
-                        new Order(rs.getInt("ord_id"),
-                        new ClientDal().get(rs.getInt("cli_id")),
-                        rs.getDate("ord_data").toLocalDate() ,
-                        rs.getDouble("ord_freight"),
-                        rs.getDouble("ord_total"))
-                    );
-//                    sql = "select * from items_order where ord_id = "+id;;
-               }
-                
-               pos++;
+                orders.add( 
+                    new Order(rs.getInt("ord_id"),
+                    clientDal.get(rs.getInt("cli_id")),
+                    rs.getDate("ord_data").toLocalDate() ,
+                    rs.getDouble("ord_freight"),
+                    rs.getDouble("ord_total"))
+                );
+                sql = "select * from items_order where ord_id = "+orders.get(pos).getId();    
            }
         }catch(SQLException e){}
         return orders;
-    }
+    }    
 }

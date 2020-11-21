@@ -136,9 +136,12 @@ public class Order {
     {
         return itens.add(new ItemOrder(p,amount,price));
     }
-    public boolean add(ItemOrder io)
+    public void add(ItemOrder io)
     {
-        return itens.add(io);
+        itens.add(io);
+    }
+    public void setItens(List io){
+        itens = io;
     }
     public List<ItemOrder>getItens()
     {

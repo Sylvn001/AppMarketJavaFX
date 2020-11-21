@@ -92,8 +92,7 @@ public class ProductListViewController implements Initializable {
     }
 
     @FXML
-    private void evtNewProduct(ActionEvent event) throws IOException {
-        
+    private void evtNewProduct(ActionEvent event) throws IOException {    
         Parent root = FXMLLoader.load(getClass().getResource("ProcutCreateView.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
