@@ -31,5 +31,10 @@
 			<type>1</type>
 			<location>C:/Users/junior/Documents/NetBeansProjects/AppMarketJavaFX/MyReports/Products.jrxml</location>
 		</link>
+		<link>
+			<name>Products_1.jasper</name>
+			<type>1</type>
+			<location>C:/Users/junior/Documents/NetBeansProjects/AppMarketJavaFX/MyReports/Products.jasper</location>
+		</link>
 	</linkedResources>
 </projectDescription>

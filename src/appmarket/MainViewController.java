@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
@@ -119,11 +122,29 @@ public class MainViewController implements Initializable {
     @FXML
     private void evtHelpCredits(ActionEvent event) {
         
-        File file = new File("help/appMarketHelp.chm");
+        File file = new File("help/help.chm");
         try {
-            Runtime.getRuntime().exec("HH.EXE ms-its:" + file.getAbsolutePath() + "::/Introduction.htm");
+            Runtime.getRuntime().exec("HH.EXE ms-its:" + file.getAbsolutePath() + "::/Credits.htm");
         } catch (IOException e1) {
             e1.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void evtBackup(ActionEvent event) {
+         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Backup of DB");
+        alert.setContentText("This operation realize Backup, you sure are sure to continue?");
+        
+        Optional<ButtonType> confirm = alert.showAndWait();
+    
+        if(confirm.get() == ButtonType.OK){
+           try{
+               DB.backup("db_bkp/appmarket.backup");
+           }
+           catch(Exception e){
+               System.out.println(e);
+           }
         }
     }
     

@@ -49,9 +49,9 @@ public class AppMarket extends Application {
                   "Problemas ao conectar: "+DB.getCon().getMensagemErro());
             if(JOptionPane.showConfirmDialog(null, "Confirma a tentativa de criação de uma nova base de dados")==JOptionPane.YES_OPTION)
             {
-               if(DB.criarBD("appMarket"))
+               if(DB.criarBD("appmarket"))
                    try
-                   {   DB.restaurar("appmarket.backup");  }
+                   {   DB.restaurar("db_bkp/appmarket.backup");  }
                    catch(Exception e){ }
                }
                Platform.exit();

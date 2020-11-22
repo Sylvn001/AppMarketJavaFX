@@ -34,7 +34,7 @@ public class DB
     public static boolean backup(String arquivo) throws Exception
     {     
        final ArrayList<String> comandos = new ArrayList();     
-       comandos.add("../dbutil/pg_dump.exe"); comandos.add("--host");     
+       comandos.add("bdutil/pg_dump.exe"); comandos.add("--host");     
        comandos.add("localhost"); //ou  comandos.add("192.168.0.1");
        comandos.add("--port"); comandos.add("5432"); comandos.add("--username");     
        comandos.add("postgres");comandos.add("--format");comandos.add("custom");     
@@ -65,7 +65,7 @@ public class DB
     public static boolean restaurar(String arquivo) throws Exception
     {     
        final ArrayList<String> comandos = new ArrayList();     
-       comandos.add(".\\dbutil\\pg_restore.exe"); comandos.add("-c");     
+       comandos.add("bdutil/pg_restore.exe"); comandos.add("-c");     
        comandos.add("--host"); comandos.add("localhost");
        comandos.add("--port"); comandos.add("5432");     
        comandos.add("--username"); comandos.add("postgres");     
