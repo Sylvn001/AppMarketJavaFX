@@ -39,26 +39,23 @@ public class AppMarket extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        if(!DB.DBconnect())
+        if(DB.DBconnect())
         {
-            JOptionPane.showMessageDialog(null,"Erro: "+DB.getCon().getMensagemErro());
-            Platform.exit();
+            launch(args);
         }
-        
-//        Categorie cat; ;
-//        cat = new Categorie("batata", "algo");
-//        System.out.println(cat.getName() + " " + cat.getDescription());
-//        
-//        CategorieDal catDal = new CategorieDal();
-//        
-//        System.out.println(catDal.create(cat));
-
-//        Product p; 
-//        p = new Product("Monster energetico", 7.9, 140, new Categorie(1, "", ""));
-//        ProductDal pdal = new ProductDal();
-//        System.out.println(pdal.create(p));
-//        
-        launch(args);;
-    }
-    
+        else
+        {
+           JOptionPane.showMessageDialog(null, 
+                  "Problemas ao conectar: "+DB.getCon().getMensagemErro());
+            if(JOptionPane.showConfirmDialog(null, "Confirma a tentativa de criação de uma nova base de dados")==JOptionPane.YES_OPTION)
+            {
+               if(DB.criarBD("appMarket"))
+                   try
+                   {   DB.restaurar("appmarket.backup");  }
+                   catch(Exception e){ }
+               }
+               Platform.exit();
+           }
+         }              
 }
+    

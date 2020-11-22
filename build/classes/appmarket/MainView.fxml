@@ -33,14 +33,10 @@
                         <MenuItem mnemonicParsing="false" onAction="#evtRelOrders" text="Orders" />
                   </items>
                 </Menu>
-                  <Menu mnemonicParsing="false" text="Configs">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Product" />
-                     </items>
-                  </Menu>
+                  <Menu mnemonicParsing="false" text="Configs" />
                   <Menu mnemonicParsing="false" text="HELP">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Product" />
+                        <MenuItem mnemonicParsing="false" onAction="#evtHelpCredits" text="Credits" />
                      </items>
                   </Menu>
               </menus>

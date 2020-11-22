@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.15.0.final using JasperReports Library version 6.15.0-dd49bfb94918336b8321d5507193f0169ead4e95  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Clients" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="305bbaaa-8d92-40be-8e27-7ec8e03901a2">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="AppMarket"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM clients;]]>
+	</queryString>
+	<field name="cli_id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="cli_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="cli_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clients"/>
+	</field>
+	<field name="cli_document" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="cli_document"/>
+		<property name="com.jaspersoft.studio.field.label" value="cli_document"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clients"/>
+	</field>
+	<field name="cli_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cli_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="cli_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clients"/>
+	</field>
+	<field name="cli_address" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cli_address"/>
+		<property name="com.jaspersoft.studio.field.label" value="cli_address"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clients"/>
+	</field>
+	<field name="cli_neighborhood" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cli_neighborhood"/>
+		<property name="com.jaspersoft.studio.field.label" value="cli_neighborhood"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clients"/>
+	</field>
+	<field name="cli_city" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cli_city"/>
+		<property name="com.jaspersoft.studio.field.label" value="cli_city"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clients"/>
+	</field>
+	<field name="cli_cep" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cli_cep"/>
+		<property name="com.jaspersoft.studio.field.label" value="cli_cep"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clients"/>
+	</field>
+	<field name="cli_uf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cli_uf"/>
+		<property name="com.jaspersoft.studio.field.label" value="cli_uf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clients"/>
+	</field>
+	<field name="cli_email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cli_email"/>
+		<property name="com.jaspersoft.studio.field.label" value="cli_email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="clients"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{cli_id}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="-21" width="100" height="32" forecolor="#666666" backcolor="#FCFAFA" uuid="343da97d-4a38-4018-9f26-fde32bf2ee58"/>
+					<textElement verticalAlignment="Middle">
+						<font size="18" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ID]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="100" y="-21" width="455" height="32" forecolor="#006699" backcolor="#FCFAFA" uuid="76203c17-459b-4aac-a936-23f6fed97c64"/>
+					<textElement verticalAlignment="Middle">
+						<font size="24" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cli_id}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[$F{cli_document}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="-21" width="455" height="32" forecolor="#006699" uuid="b65267f6-ecc5-42a0-8ad6-d2c1d6928a54"/>
+					<textElement verticalAlignment="Middle">
+						<font size="22" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cli_document}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="-21" width="100" height="32" forecolor="#666666" uuid="02dbc4c5-7f78-4930-b705-164a87ca2c41"/>
+					<textElement verticalAlignment="Middle">
+						<font size="18" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Document]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group3">
+		<groupExpression><![CDATA[$F{cli_name}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="-21" width="455" height="32" forecolor="#006699" uuid="1cfccab1-ed63-4d03-8d2c-7ee30a6ad719"/>
+					<textElement verticalAlignment="Middle">
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cli_name}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="-21" width="100" height="32" forecolor="#666666" uuid="46453c52-6d98-4187-8582-204b9af833df"/>
+					<textElement verticalAlignment="Middle">
+						<font size="18" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Name]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group4" minHeightToStartNewPage="100">
+		<groupExpression><![CDATA[$F{cli_email}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="100" y="-21" width="455" height="32" forecolor="#006699" uuid="d93ca20c-613f-4313-aab5-807eae78afca"/>
+					<textElement verticalAlignment="Middle">
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cli_email}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="-21" width="100" height="32" forecolor="#666666" uuid="22040328-ca53-4b0e-a48c-12c55cfd8c18"/>
+					<textElement verticalAlignment="Middle">
+						<font size="18" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Email]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="cli_cep">
+		<groupExpression><![CDATA[$F{cli_cep}]]></groupExpression>
+	</group>
+	<group name="cli_city">
+		<groupExpression><![CDATA[$F{cli_city}]]></groupExpression>
+	</group>
+	<group name="cli_uf">
+		<groupExpression><![CDATA[$F{cli_uf}]]></groupExpression>
+	</group>
+	<group name="cli_neighborhood">
+		<groupExpression><![CDATA[$F{cli_neighborhood}]]></groupExpression>
+	</group>
+	<group name="cli_address">
+		<groupExpression><![CDATA[$F{cli_address}]]></groupExpression>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="5de12526-04ce-4747-81fd-3d3e2f50d412"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="9768c0ae-2ef4-4364-bf71-676ac883d079"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Clients]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="d5eed74a-4de6-45d6-8e10-9cc70ac057f0"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[List of Clients]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21"/>
+	</columnHeader>
+	<detail>
+		<band height="131">
+			<textField>
+				<reportElement x="100" y="9" width="455" height="32" forecolor="#006699" uuid="8c17bce2-9b00-44fd-a472-4abd467ad383"/>
+				<textElement verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cli_uf}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="9" width="100" height="32" forecolor="#666666" uuid="88af213b-61cc-43ee-b52e-90bd4502e17a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UF]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="-21" width="455" height="32" forecolor="#006699" uuid="87c7fcea-251e-4821-bcca-af9d4cd6e69a">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cli_city}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="-21" width="100" height="32" forecolor="#666666" uuid="9c5c405b-dda4-498f-a8bb-485558599d65"/>
+				<textElement verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[City]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="41" width="455" height="32" forecolor="#006699" uuid="04f3491a-d49e-4e34-91c9-fb4981902aaa"/>
+				<textElement verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cli_cep}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="41" width="100" height="32" forecolor="#666666" uuid="7df46ed3-e7b1-430a-bf65-c2bc9a320198"/>
+				<textElement verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cep]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="73" width="455" height="32" forecolor="#006699" uuid="59b92c5b-aa2e-4d4d-9965-1ba36e04c4f4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cli_address}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="73" width="100" height="32" forecolor="#666666" uuid="c8c16ca7-9fe7-4d66-b670-2f6e0ff1b856"/>
+				<textElement verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="105" width="555" height="1" uuid="1cd9cb8f-d3f8-41ac-bfbc-997fac9b4e95"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="8b551b51-a3f7-4cde-96d9-423886631493"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="22ff64e7-5add-469b-b6c6-e1e8851a6c6b"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="fbb6df70-1729-4e89-ac11-c8087394fa67"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

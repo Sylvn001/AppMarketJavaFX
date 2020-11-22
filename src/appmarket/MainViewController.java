@@ -6,6 +6,7 @@
 package appmarket;
 
 import appmarket.db.connect.DB;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -112,6 +113,18 @@ public class MainViewController implements Initializable {
 
     @FXML
     private void evtRelOrders(ActionEvent event) {
+        generateRelatorie("select * from orders as o left join items_order as ior on o.ord_id = ior.ord_id","reports/Order.jasper" );
+    }
+
+    @FXML
+    private void evtHelpCredits(ActionEvent event) {
+        
+        File file = new File("help/appMarketHelp.chm");
+        try {
+            Runtime.getRuntime().exec("HH.EXE ms-its:" + file.getAbsolutePath() + "::/Introduction.htm");
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
     }
     
 }

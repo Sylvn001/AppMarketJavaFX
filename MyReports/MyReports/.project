@@ -20,4 +20,16 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>net.sf.jasperreports.nature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>Products.jasper</name>
+			<type>1</type>
+			<location>C:/Users/junior/Documents/NetBeansProjects/AppMarketJavaFX/MyReports/Products.jasper</location>
+		</link>
+		<link>
+			<name>Products.jrxml</name>
+			<type>1</type>
+			<location>C:/Users/junior/Documents/NetBeansProjects/AppMarketJavaFX/MyReports/Products.jrxml</location>
+		</link>
+	</linkedResources>
 </projectDescription>

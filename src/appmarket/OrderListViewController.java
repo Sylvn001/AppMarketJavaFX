@@ -106,8 +106,9 @@ public class OrderListViewController implements Initializable {
     private void evtOrderInfo(ActionEvent event) throws IOException, JRException {
            try
         { //sql para obter os dados para o relatorio
-          String sql  = "";
-          String relat = "";
+          int id = table.getSelectionModel().getSelectedItem().getId();
+          String sql  = "select * from orders as o left join items_order as ior on o.ord_id = ior.ord_id where ior.ord_id ="+ id;
+          String relat = "reports/Order.jasper";
           ResultSet rs = DB.getCon().consultar(sql);
           //implementação da interface JRDataSource para DataSource ResultSet
           JRResultSetDataSource jrRS = new JRResultSetDataSource(rs);
