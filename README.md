@@ -10,6 +10,8 @@ DBName -> appMarket. Compile the project using NetBeans IDE (i'm using version 8
 
 Configure the DB connection files. 
 
+If you using in atual version, the project generate backup and restore automatically.
+
 <hr>
 this is a bimestral project of the university UNOESTE from state of São Paulo, Brazil. 
 
